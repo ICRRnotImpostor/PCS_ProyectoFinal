@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLLogInController">
+   <children>
+      <Pane layoutX="487.0" prefHeight="600.0" prefWidth="450.0">
+         <children>
+            <Label layoutX="174.0" layoutY="38.0" text="Inicio de sesion">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="99.0" text="Usuario" />
+            <TextField fx:id="tfUsuario" layoutX="36.0" layoutY="142.0" promptText="Ej.usuario12" />
+            <Label layoutX="36.0" layoutY="265.0" text="Contraseña" />
+            <Button layoutX="76.0" layoutY="408.0" mnemonicParsing="false" onAction="#clickIniciarSesion" text="Iniciar sesion" />
+            <Label fx:id="lbErrorUsuario" layoutX="36.0" layoutY="180.0" textFill="#ee0b0b" />
+            <Label fx:id="lbErrorPassword" layoutX="36.0" layoutY="349.0" textFill="#ee0b0b" />
+            <PasswordField fx:id="tfPassword" layoutX="36.0" layoutY="308.0" promptText="Ej.12345" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="600.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/UV_Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

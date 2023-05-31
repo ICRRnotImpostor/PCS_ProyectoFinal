@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="389.0" prefWidth="537.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxsistemaescolar.controladores.FXMLFormularioActividadController">
+   <children>
+      <Label layoutX="41.0" layoutY="27.0" text="Actividad">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="102.0" text="Nombre de la actividad" />
+      <Button layoutX="300.0" layoutY="97.0" mnemonicParsing="false" text="Seleccionar documento" />
+      <Label layoutX="41.0" layoutY="251.0" text="Fecha de inicio" />
+      <DatePicker fx:id="dpFechaInicio" layoutX="41.0" layoutY="286.0" prefHeight="31.0" prefWidth="155.0" />
+      <Label layoutX="329.0" layoutY="251.0" text="Fecha de fin" />
+      <DatePicker fx:id="dpFechaFIn" layoutX="287.0" layoutY="293.0" prefHeight="31.0" prefWidth="164.0" />
+      <TextField fx:id="tfNombreActividad" layoutX="41.0" layoutY="139.0" text="Ej. primera entrega" />
+   </children>
+</AnchorPane>

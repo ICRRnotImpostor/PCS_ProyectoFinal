@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="545.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLMenuPrincipalController">
+   <children>
+      <Label fx:id="label" layoutX="208.0" layoutY="148.0" minHeight="16" minWidth="69" text="Menu principal" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="43.0" layoutY="229.0" mnemonicParsing="false" onAction="#clickIrGestionCronograma" text="Gestion del cronograma" />
+      <Pane layoutY="417.0" prefHeight="23.0" prefWidth="545.0" style="-fx-background-color: green;" />
+      <Pane layoutY="440.0" prefHeight="23.0" prefWidth="545.0" style="-fx-background-color: blue;" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="173.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/HalconesUV.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="337.0" layoutY="229.0" mnemonicParsing="false" onAction="#clickGestionAdministracion" text="Gestion de admistracion" />
+      <Button layoutX="41.0" layoutY="320.0" mnemonicParsing="false" onAction="#clickGestionAnteproyecto" text="Gestion de anteproyecto" />
+   </children>
+</AnchorPane>
