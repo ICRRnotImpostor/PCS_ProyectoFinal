@@ -24,6 +24,6 @@
          </image>
       </ImageView>
       <Button layoutX="337.0" layoutY="229.0" mnemonicParsing="false" onAction="#clickGestionAdministracion" text="Gestion de admistracion" />
-      <Button layoutX="41.0" layoutY="320.0" mnemonicParsing="false" onAction="#clickGestionAnteproyecto" text="Gestion de anteproyecto" />
+      <Button layoutX="41.0" layoutY="320.0" mnemonicParsing="false" onAction="#clickBtnAnteproyecto" text="Gestion de anteproyecto" />
    </children>
 </AnchorPane>

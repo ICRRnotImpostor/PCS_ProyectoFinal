@@ -38,10 +38,10 @@ public class SesionDAO {
                 if(resultado.next()){
                     usuarioVerificado.setIdUsuario(resultado.getInt("idUsuario"));
                     usuarioVerificado.setNombre(resultado.getString("nombre"));
-                    usuarioVerificado.setApellidoPaterno(resultado.getString("ApellidoPaterno"));
-                    usuarioVerificado.setApellidoMaterno(resultado.getString("ApellidoMaterno"));
-                    usuarioVerificado.setUsername(resultado.getString("Username"));
-                    usuarioVerificado.setPassword(resultado.getString("Password"));
+                    usuarioVerificado.setApellidoPaterno(resultado.getString("apellidoPaterno"));
+                    usuarioVerificado.setApellidoMaterno(resultado.getString("apellidoMaterno"));
+                    usuarioVerificado.setUsername(resultado.getString("username"));
+                    usuarioVerificado.setPassword(resultado.getString("password"));
                                         
                 }
                 

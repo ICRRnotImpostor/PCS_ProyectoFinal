@@ -1,4 +1,3 @@
-
 package javafxsistemaescolar.modelo;
 
 import java.sql.Connection;
@@ -7,11 +6,13 @@ import java.sql.SQLException;
 
 
 public class ConexionBD {    
+    
+    
     private static String driver = "com.mysql.jdbc.Driver";
-    private static String nombreBase = "experienciaRecpecional";
+    private static String nombreBase = "experienciaRecepcional";
     private static String hostname = "localhost";
     private static String puerto = "3306";    
-    private static String usuario = "Caixba";   //bd.controlescolar
+    private static String usuario = "ingSoft01";   //bd.controlescolar
     private static String password = "mysqlconstruccion";
     private static String urlConexion = "jdbc:mysql://"+hostname+":"+puerto+"/"+nombreBase+"?allowPublicKeyRetrieval=true&useSSL=false";
     

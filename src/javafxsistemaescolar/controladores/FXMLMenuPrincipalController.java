@@ -46,7 +46,12 @@ public class FXMLMenuPrincipalController implements Initializable {
     }
 
     @FXML
-    private void clickGestionAnteproyecto(ActionEvent event) {
+    private void clickBtnAnteproyecto(ActionEvent event) {
+        Stage escenarioAnteproyectos = new Stage();
+        escenarioAnteproyectos.setScene(Utilidades.inicializarEscena("vistas/FXMLAnteproyectos.fxml"));
+        escenarioAnteproyectos.setTitle("Administradoción de Anteproyectos");
+        escenarioAnteproyectos.initModality(Modality.APPLICATION_MODAL);
+        escenarioAnteproyectos.showAndWait();
     }
     
 }
