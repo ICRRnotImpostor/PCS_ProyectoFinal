@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLMenuAcademicoController">
+   <children>
+      <Pane prefHeight="120.0" prefWidth="650.0" style="-fx-background-color: #2980B9;">
+         <children>
+            <Label fx:id="label" layoutX="36.0" layoutY="35.0" minHeight="16" minWidth="69" text="Menu principal" textOverrun="LEADING_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Button layoutX="297.0" layoutY="141.0" mnemonicParsing="false" onAction="#clickBtnAnteproyecto" prefHeight="30.0" text="Gestion de anteproyecto" />
+      <Button layoutX="297.0" layoutY="195.0" mnemonicParsing="false" onAction="#clicBtnLGAC" prefHeight="30.0" prefWidth="184.0" text="Consultar LGAC" />
+      <ImageView fitHeight="253.0" fitWidth="200.0" layoutX="28.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/UV_Logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnRegresar" layoutX="574.0" layoutY="363.0" mnemonicParsing="false" onAction="#clicBtnRegresar" text="Salir" />
+   </children>
+</AnchorPane>

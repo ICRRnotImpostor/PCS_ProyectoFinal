@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLAnteproyectosAdminRCAController">
+   <children>
+      <Pane prefHeight="96.0" prefWidth="984.0" style="-fx-background-color: #2980B9;">
+         <children>
+            <Label layoutX="40.0" layoutY="20.0" text="Anteproyectos">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tvAnteproyectos" layoutX="20.0" layoutY="153.0" prefHeight="350.0" prefWidth="765.0">
+         <columns>
+            <TableColumn fx:id="colNombre" prefWidth="315.0" text="Nombre del proyecto de investigación" />
+            <TableColumn fx:id="colDirector" prefWidth="290.0" text="Director" />
+            <TableColumn fx:id="colFecha" prefWidth="159.0" text="Fecha" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfBusqueda" layoutX="20.0" layoutY="107.0" prefHeight="31.0" prefWidth="378.0" promptText="Buscar anteproyecto" style="-fx-background-color: #EBF5FB;" />
+      <Button fx:id="btnRegresar" layoutX="20.0" layoutY="527.0" mnemonicParsing="false" onAction="#clicBtnRegresar" prefHeight="31.0" prefWidth="138.0" text="Regresar" />
+      <Button layoutX="819.0" layoutY="153.0" mnemonicParsing="false" onAction="#clicBtnVerDetalles" prefHeight="31.0" prefWidth="138.0" text="Ver detalles" />
+      <Button fx:id="btnPendientes" layoutX="819.0" layoutY="472.0" mnemonicParsing="false" onAction="#clicBtnPendientes" prefHeight="31.0" prefWidth="138.0" text="Pendientes" />
+   </children>
+</AnchorPane>

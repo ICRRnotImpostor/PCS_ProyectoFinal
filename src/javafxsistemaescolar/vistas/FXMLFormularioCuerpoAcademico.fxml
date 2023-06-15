@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLFormularioCuerpoAcademicoController">
+   <children>
+      <Label fx:id="lbTitulo" layoutX="41.0" layoutY="27.0" text="Formulario del cuerpo académico">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="102.0" text="Nombre:" />
+      <TextField fx:id="tfNombreCuerpoAcademico" layoutX="218.0" layoutY="97.0" prefHeight="31.0" prefWidth="242.0" promptText="Ej. Miguel" />
+      <Pane layoutY="585.0" prefHeight="31.0" prefWidth="869.0" style="-fx-background-color: #18529D;" />
+      <Pane layoutY="554.0" prefHeight="31.0" prefWidth="869.0" style="-fx-background-color: #28AD56;" />
+      <Button layoutX="632.0" layoutY="494.0" mnemonicParsing="false" onAction="#clickBtnCancelar" text="Cancelar" />
+      <Button layoutX="774.0" layoutY="494.0" mnemonicParsing="false" onAction="#clickBtnGuardar" text="Guardar" />
+      <Label layoutX="38.0" layoutY="272.0" text="Apellido materno:" />
+      <Label layoutX="42.0" layoutY="192.0" text="Apellido paterno:" />
+      <Label layoutX="36.0" layoutY="345.0" text="Numero de personal:" />
+      <Label layoutX="41.0" layoutY="425.0" text="Correo:" />
+      <TextField fx:id="tfApellidoMaterno" layoutX="218.0" layoutY="267.0" prefHeight="31.0" prefWidth="242.0" promptText="Ej. Caixba" />
+      <TextField fx:id="tfCorreo" layoutX="218.0" layoutY="420.0" prefHeight="31.0" prefWidth="242.0" promptText="Ej. miguelmartinez@uv.mx" />
+      <TextField fx:id="tfApellidoPaterno" layoutX="218.0" layoutY="187.0" prefHeight="31.0" prefWidth="242.0" promptText="Ej. Martinez" />
+      <TextField fx:id="tfNumeroPersonal" layoutX="218.0" layoutY="340.0" prefHeight="31.0" prefWidth="242.0" promptText="Ej. 5683" />
+   </children>
+</AnchorPane>

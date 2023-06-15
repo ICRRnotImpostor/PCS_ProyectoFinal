@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLFormularioActividadController">
+   <children>
+      <Label fx:id="lbTitulo" layoutX="41.0" layoutY="27.0" text="Actividad">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="102.0" text="Nombre de la actividad" />
+      <Button fx:id="btnSeleccionarDocumento" layoutX="666.0" layoutY="356.0" mnemonicParsing="false" onAction="#clickSeleccionarDocumento" text="Seleccionar documento" />
+      <Label layoutX="55.0" layoutY="426.0" text="Fecha de inicio" />
+      <DatePicker fx:id="dpFechaInicio" layoutX="55.0" layoutY="461.0" prefHeight="31.0" prefWidth="155.0" />
+      <Label layoutX="255.0" layoutY="426.0" text="Fecha de fin" />
+      <DatePicker fx:id="dpFechaFIn" layoutX="253.0" layoutY="461.0" prefHeight="31.0" prefWidth="164.0" />
+      <TextField fx:id="tfNombreActividad" layoutX="218.0" layoutY="97.0" prefHeight="31.0" prefWidth="346.0" promptText="Ej. primera entrega" />
+      <TextArea fx:id="taDescripcionAct" layoutX="36.0" layoutY="211.0" prefHeight="176.0" prefWidth="503.0" />
+      <Pane layoutY="585.0" prefHeight="31.0" prefWidth="869.0" style="-fx-background-color: #18529D;" />
+      <Pane layoutY="554.0" prefHeight="31.0" prefWidth="869.0" style="-fx-background-color: #28AD56;" />
+      <Button layoutX="666.0" layoutY="454.0" mnemonicParsing="false" onAction="#clickBtnCancelar" text="Cancelar" />
+      <Button layoutX="768.0" layoutY="454.0" mnemonicParsing="false" onAction="#clickBtnGuardar" text="Guardar" />
+      <Label layoutX="41.0" layoutY="173.0" text="Descripcion de la actividad" />
+      <Pane fx:id="paneContenedor" layoutX="666.0" layoutY="105.0" prefHeight="158.0" prefWidth="143.0">
+         <children>
+            <ImageView fx:id="ivDocumento" fitHeight="158.0" fitWidth="149.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

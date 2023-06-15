@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLLGACAdminController">
+   <children>
+      <Pane prefHeight="96.0" prefWidth="1220.0" style="-fx-background-color: #2980B9;">
+         <children>
+            <Label layoutX="40.0" layoutY="20.0" text="LGAC">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tvLGAC" layoutX="110.0" layoutY="139.0" prefHeight="350.0" prefWidth="1000.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="344.0" text="Nombre" />
+          <TableColumn fx:id="colDescripcion" prefWidth="700.0" text="Descripción" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnRegresar" layoutX="24.0" layoutY="526.0" mnemonicParsing="false" onAction="#clicBtnRegresar" prefHeight="31.0" prefWidth="138.0" text="Regresar" />
+      <Button layoutX="880.0" layoutY="527.0" mnemonicParsing="false" onAction="#clicBtnNuevaLGAC" prefHeight="31.0" prefWidth="138.0" text="Añadir" />
+      <Button layoutX="1051.0" layoutY="527.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="138.0" text="Modificar" />
+   </children>
+</AnchorPane>

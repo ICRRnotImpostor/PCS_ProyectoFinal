@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="932.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLGestionAdministracionController">
+   <children>
+      <Button layoutX="78.0" layoutY="67.0" mnemonicParsing="false" onAction="#clickBtnAñadirUsuario" prefHeight="31.0" prefWidth="209.0" text="añadir usuario" />
+      <Button layoutX="78.0" layoutY="647.0" mnemonicParsing="false" onAction="#clickBtnAniadirCA" prefHeight="31.0" prefWidth="209.0" text="Añadir cuerpo académico" />
+      <Button layoutX="78.0" layoutY="373.0" mnemonicParsing="false" onAction="#clickBtnAñadirCurso" prefHeight="31.0" prefWidth="209.0" text="Añadir curso" />
+      <Button layoutX="78.0" layoutY="701.0" mnemonicParsing="false" onAction="#clickBtnMoificarCA" text="Modificar cuerpo académico" />
+      <TableView fx:id="tvUsuarios" layoutX="477.0" layoutY="52.0" prefHeight="258.0" prefWidth="795.0">
+         <columns>
+            <TableColumn fx:id="colNombreUsr" prefWidth="218.0" text="Nombre del usuario" />
+            <TableColumn fx:id="colApellidoPat" minWidth="0.0" prefWidth="186.0" text="Apellido paterno" />
+            <TableColumn fx:id="colApellidoMat" prefWidth="193.0" text="Apellido materno" />
+            <TableColumn fx:id="colTipoUsuario" prefWidth="197.0" text="Tipo de usuario" />
+         </columns>
+      </TableView>
+      <Pane layoutX="21.0" prefHeight="932.0" prefWidth="21.0" style="-fx-background-color: #28AD56;" />
+      <Pane prefHeight="932.0" prefWidth="21.0" style="-fx-background-color: #18529D;" />
+      <Label layoutX="78.0" layoutY="14.0" text="Gestor de la administracion">
+         <font>
+            <Font name="SansSerif Regular" size="29.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvCursos" layoutX="477.0" layoutY="355.0" prefHeight="258.0" prefWidth="795.0">
+         <columns>
+            <TableColumn fx:id="colNombreCurso" prefWidth="218.0" text="Nombre del curso" />
+            <TableColumn fx:id="colPeriodoCurso" minWidth="0.0" prefWidth="180.0" text="Periodo" />
+            <TableColumn fx:id="colFechaInicioCurso" prefWidth="184.0" text="Fecha de inicio" />
+            <TableColumn fx:id="colFechaFinCurso" prefWidth="212.0" text="Fecha de fin" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tvCuerpoAcademico" layoutX="477.0" layoutY="647.0" prefHeight="258.0" prefWidth="795.0">
+         <columns>
+            <TableColumn fx:id="colNombreCA" prefWidth="172.0" text="Nombre del académico" />
+            <TableColumn fx:id="colApellidoPatCA" minWidth="0.0" prefWidth="137.0" text="Apellido paterno" />
+            <TableColumn fx:id="colApellidoMatCA" prefWidth="135.0" text="Apellido materno" />
+            <TableColumn fx:id="colNumeroPersonalCA" prefWidth="152.0" text="Numero de personal" />
+            <TableColumn fx:id="colCorreoCA" prefWidth="197.0" text="Correo" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

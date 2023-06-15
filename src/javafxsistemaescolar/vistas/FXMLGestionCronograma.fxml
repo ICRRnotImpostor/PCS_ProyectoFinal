@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="457.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLGestionCronogramaController">
+   <children>
+      <Button layoutX="113.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickBtnAgregar" text="Agregar actividad" />
+      <Button layoutX="500.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickBtnModificar" text="Modificar actividad" />
+      <Button layoutX="312.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickBtnVer" text="Ver actividad" />
+      <Button layoutX="696.0" layoutY="76.0" mnemonicParsing="false" onAction="#clickBtnEliminar" text="Eliminar actividad" />
+      <TableView fx:id="tvActividades" layoutX="113.0" layoutY="179.0" prefHeight="258.0" prefWidth="590.0">
+        <columns>
+          <TableColumn fx:id="colNombreAct" prefWidth="229.0" text="Nombre de la actividad" />
+            <TableColumn fx:id="colFechaInicio" prefWidth="179.0" text="Fecha de incio" />
+            <TableColumn fx:id="colFechaFin" prefWidth="181.0" text="Fecha de fin" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfBusqueda" layoutX="113.0" layoutY="134.0" prefHeight="31.0" prefWidth="296.0" promptText="Buscar actividad" />
+      <Pane layoutX="21.0" prefHeight="457.0" prefWidth="21.0" style="-fx-background-color: #28AD56;" />
+      <Pane prefHeight="457.0" prefWidth="21.0" style="-fx-background-color: #18529D;" />
+      <Label layoutX="121.0" layoutY="24.0" text="Gestor del cronograma">
+         <font>
+            <Font name="SansSerif Regular" size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

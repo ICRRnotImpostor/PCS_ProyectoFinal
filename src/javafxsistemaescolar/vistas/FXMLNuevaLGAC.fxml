@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLNuevaLGACController">
+   <children>
+      <Pane prefHeight="96.0" prefWidth="677.0" style="-fx-background-color: #2980B9;">
+         <children>
+            <Label layoutX="28.0" layoutY="23.0" text="LGAC">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </Label>
+            <Label layoutX="117.0" layoutY="30.0" text="&gt;Añadir">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="btnRegresar" layoutX="516.0" layoutY="396.0" mnemonicParsing="false" onAction="#clicBtnRegresar" prefHeight="31.0" prefWidth="138.0" text="Regresar" />
+      <Button layoutX="516.0" layoutY="151.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="31.0" prefWidth="138.0" text="Añadir" />
+      <Label layoutX="24.0" layoutY="121.0" text="Nombre:" />
+      <TextField fx:id="tfNombre" layoutX="24.0" layoutY="151.0" prefHeight="31.0" prefWidth="222.0" />
+      <Label layoutX="24.0" layoutY="197.0" text="Descripción:" />
+      <TextArea fx:id="taDescripcion" layoutX="24.0" layoutY="227.0" prefHeight="200.0" prefWidth="474.0" />
+      <Label layoutX="276.0" layoutY="121.0" text="Cuerpo Academico" />
+      <ComboBox fx:id="cbCuerpoAcademico" layoutX="276.0" layoutY="151.0" prefHeight="31.0" prefWidth="222.0" />
+   </children>
+</AnchorPane>
