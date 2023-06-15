@@ -1,72 +1,95 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Miguel Martinez. 
+Creado: 21/05/2023 
+Modificado: 11/06/2023  
+Descripción: Pojo de la Actividad
+*/
 package javafxsistemaescolar.modelo.pojo;
 
-/**
- *
- * @author migue
- */
 public class Actividad {
     private int idActividad;
-    private String nombre;
-    private byte[] doc;
+    private String nombreActividad;
+    private String descripcionActividad;    
+    private byte[] documento;
     private String fechaInicio;
     private String fechaFin;
 
-    public Actividad() {
+    public Actividad()
+    {
     }
 
-    public Actividad(int idActividad, String nombre, byte[] doc, String fechaInicio, String fechaFin) {
+    public Actividad(int idActividad, String nombreActividad, String descripcionActividad, byte[] documento, String fechaInicio, String fechaFin)
+    {
         this.idActividad = idActividad;
-        this.nombre = nombre;
-        this.doc = doc;
+        this.nombreActividad = nombreActividad;
+        this.descripcionActividad = descripcionActividad;
+        this.documento = documento;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
 
-    public int getIdActividad() {
+    public int getIdActividad() 
+    {
         return idActividad;
     }
 
-    public void setIdActividad(int idActividad) {
+    public void setIdActividad(int idActividad)
+    {
         this.idActividad = idActividad;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreActividad() 
+    {
+        return nombreActividad;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreActividad(String nombreActividad) 
+    {
+        this.nombreActividad = nombreActividad;
     }
 
-    public byte[] getDoc() {
-        return doc;
+    public String getDescripcionActividad()
+    {
+        return descripcionActividad;
     }
 
-    public void setDoc(byte[] doc) {
-        this.doc = doc;
+    public void setDescripcionActividad(String descripcionActividad) 
+    {
+        this.descripcionActividad = descripcionActividad;
     }
 
-    public String getFechaInicio() {
+    public byte[] getDocumento() 
+    {
+        return documento;
+    }
+
+    public void setDocumento(byte[] documento)
+    {
+        this.documento = documento;
+    }
+
+    public String getFechaInicio() 
+    {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(String fechaInicio)
+    {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFin() {
+    public String getFechaFin() 
+    {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin) {
+    public void setFechaFin(String fechaFin)
+    {
         this.fechaFin = fechaFin;
     }
     
-    
 }
+
+   
 
 

@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 28/05/2023 
+Modificado: 14/06/2023  
+Descripción: respuesta de Academico
+*/
 package javafxsistemaescolar.modelo.pojo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author ianca
- */
 public class AcademicoRespuesta {
     private int codigoRespuesta;
     private ArrayList<Academico>academico;

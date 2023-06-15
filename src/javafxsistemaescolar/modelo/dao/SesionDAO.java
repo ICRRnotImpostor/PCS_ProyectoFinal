@@ -1,7 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 28/05/2023 
+Modificado: 15/06/2023  
+Descripción: Acceso a los datos de Inicio de sesion en la BD
+*/
 package javafxsistemaescolar.modelo.dao;
 
 import java.sql.Connection;
@@ -12,10 +14,6 @@ import javafxsistemaescolar.modelo.ConexionBD;
 import javafxsistemaescolar.modelo.pojo.Usuario;
 import javafxsistemaescolar.utils.Constantes;
 
-/**
- *
- * @author migue
- */
 public class SesionDAO {
     
     public static Usuario verificarUsuarioSesion(String usuario, String password){
@@ -42,6 +40,7 @@ public class SesionDAO {
                     usuarioVerificado.setApellidoMaterno(resultado.getString("apellidoMaterno"));
                     usuarioVerificado.setUsername(resultado.getString("username"));
                     usuarioVerificado.setPassword(resultado.getString("password"));
+                    usuarioVerificado.setPrivilegios(resultado.getString("privilegios"));
                                         
                 }
                 

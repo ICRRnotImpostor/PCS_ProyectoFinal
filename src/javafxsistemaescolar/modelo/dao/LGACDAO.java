@@ -1,7 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 28/05/2023 
+Modificado: 15/06/2023  
+Descripción: Acceso a los datos de LGAC en la BD
+*/
 package javafxsistemaescolar.modelo.dao;
 
 import java.sql.Connection;
@@ -14,10 +16,6 @@ import javafxsistemaescolar.modelo.pojo.LGAC;
 import javafxsistemaescolar.modelo.pojo.LGACRespuesta;
 import javafxsistemaescolar.utils.Constantes;
 
-/**
- *
- * @author ianca
- */
 public class LGACDAO {
     public static LGACRespuesta obtenerInformacionLGAC(){
         LGACRespuesta respuesta = new LGACRespuesta();
@@ -33,6 +31,7 @@ public class LGACDAO {
                     LGAC lgacResult = new LGAC();
                     lgacResult.setIdLGAC(resultado.getInt("idLGAC"));
                     lgacResult.setNombre(resultado.getString("nombre"));
+                    lgacResult.setDescripcion(resultado.getString("descripcion"));
                     lgac.add(lgacResult);
                 }    
                 conexionBD.close();
@@ -46,4 +45,28 @@ public class LGACDAO {
         } 
         return respuesta;
     }
+    
+    public static int guardarLGAC(LGAC nuevaLGAC){
+        int respuesta;
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try {
+                String sentencia = "INSERT INTO lgac (nombre, descripcion, idCuerpoAcademico) "+
+                                    "VALUES (?, ?, ?)";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
+                prepararSentencia.setString(1, nuevaLGAC.getNombre());
+                prepararSentencia.setString(2, nuevaLGAC.getDescripcion());
+                prepararSentencia.setInt(3, nuevaLGAC.getIdCuerpoAcademico());
+                int filasAfectadas = prepararSentencia.executeUpdate();
+                respuesta = (filasAfectadas == 1) ? Constantes.OPERACION_EXITOSA : Constantes.ERROR_CONSULTA;
+                conexionBD.close();
+            } catch (SQLException e) {
+                respuesta = Constantes.ERROR_CONSULTA;
+            }
+        }else{
+            respuesta = Constantes.ERROR_CONEXION;
+        }
+        return respuesta;
+    }
+    
 }

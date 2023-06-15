@@ -1,28 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 28/05/2023 
+Modificado: 14/06/2023  
+Descripción: Clase que implementa los objetos de tipo Academico
+*/
 package javafxsistemaescolar.modelo.pojo;
 
-/**
- *
- * @author ianca
- */
 public class Academico {
     private int idAcademico;
     private String nombreAcademico;
     private String apellidoPaterno;
     private String apellidoMaterno;
+    private int numeroDePersonal;
     private String correo;
 
     public Academico() {
     }
 
-    public Academico(int idAcademico, String nombreAcademico, String apellidoPaterno, String apellidoMaterno, String correo) {
+    public Academico(int idAcademico, String nombreAcademico, String apellidoPaterno, String apellidoMaterno, int numeroDePersonal, String correo) {
         this.idAcademico = idAcademico;
         this.nombreAcademico = nombreAcademico;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
+        this.numeroDePersonal = numeroDePersonal;
         this.correo = correo;
     }
 
@@ -56,6 +56,14 @@ public class Academico {
 
     public void setApellidoMaterno(String apellidoMaterno) {
         this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public int getNumeroDePersonal() {
+        return numeroDePersonal;
+    }
+
+    public void setNumeroDePersonal(int numeroDePersonal) {
+        this.numeroDePersonal = numeroDePersonal;
     }
 
     public String getCorreo() {

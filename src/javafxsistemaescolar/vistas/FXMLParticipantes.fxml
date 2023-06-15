@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLParticipantesController">
+   <children>
+      <Pane prefHeight="96.0" prefWidth="1005.0" style="-fx-background-color: #2980B9;">
+         <children>
+            <Label layoutX="40.0" layoutY="20.0" text="Participantes">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tvAlumno" layoutX="23.0" layoutY="178.0" prefHeight="175.0" prefWidth="960.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="148.0" text="Nombre" />
+          <TableColumn fx:id="colApellidoP" prefWidth="206.0" text="Apellido paterno" />
+            <TableColumn fx:id="colApellidoM" prefWidth="204.0" text="Apellido materno" />
+            <TableColumn fx:id="colCorreo" prefWidth="247.0" text="Correo" />
+            <TableColumn fx:id="colMatricula" prefWidth="153.0" text="Matricula" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfMatricula" layoutX="24.0" layoutY="107.0" prefHeight="31.0" prefWidth="372.0" promptText="Matricula" style="-fx-background-color: #EBF5FB;" />
+      <Button fx:id="btnRegresar" layoutX="24.0" layoutY="366.0" mnemonicParsing="false" onAction="#clicBtnRegresar" prefHeight="31.0" prefWidth="138.0" text="Regresar" />
+      <Button layoutX="662.0" layoutY="107.0" mnemonicParsing="false" onAction="#clicBtnAsignar" prefHeight="31.0" prefWidth="138.0" text="Asignar" />
+      <Button layoutX="846.0" layoutY="107.0" mnemonicParsing="false" onAction="#clicBtnEliminar" prefHeight="31.0" prefWidth="138.0" text="Eliminar" />
+      <Button fx:id="btnCambioTabla" layoutX="425.0" layoutY="107.0" mnemonicParsing="false" onAction="#btnCambiarTabla" prefHeight="31.0" prefWidth="205.0" text="Alumnos sin asignación" />
+      <Label fx:id="lbTablaSeleccion" layoutX="24.0" layoutY="148.0" />
+   </children>
+</AnchorPane>

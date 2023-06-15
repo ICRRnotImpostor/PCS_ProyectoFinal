@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package javafxsistemaescolar.controladores;
 
 import java.net.URL;
@@ -33,7 +30,6 @@ public class FXMLLogInController implements Initializable {
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     @FXML
@@ -57,7 +53,6 @@ public class FXMLLogInController implements Initializable {
             lbErrorPassword.setText("El campo contrasenia es requerido");
         }
         if(sonValidos){
-            
             validarCredencialesUsuarios(usuario, password);            
         }
     }
@@ -70,54 +65,71 @@ public class FXMLLogInController implements Initializable {
                 Utilidades.mostrarDialogoSimple("Error de conexion",
                         "Por el momento no hay conexion, intentalo mas tarde",
                         Alert.AlertType.ERROR);
-                break;
-                
+                break;           
             case Constantes.ERROR_CONSULTA:
                 Utilidades.mostrarDialogoSimple("Error en la solicitud",
                         "Por el momento no se puede procesar la solicitud de verificacion",
                         Alert.AlertType.ERROR);                
-                break;
-                
+                break;        
             case Constantes.OPERACION_EXITOSA:
-                //0 es el valor default
                 if(usuarioRespuesta.getIdUsuario() > 0){
-                      Utilidades.mostrarDialogoSimple("Bienvenido(a)",
-                        "Bienvenido "+usuarioRespuesta.toString()+ " al sistema...",
+                    String priv = usuarioRespuesta.getPrivilegios();
+                        Utilidades.mostrarDialogoSimple("Bienvenido(a)",
+                                "Bienvenido "+usuarioRespuesta.toString()+ " al sistema...",
                     Alert.AlertType.INFORMATION);
-                      irPantallaPrincipal();
-                      
-                     //Si el idUsuario no es menor a cer 
+                        switch(priv){
+                            case "academico":
+                                irPantallaPrincipalDirector();
+                                break;
+                            case "responsable":
+                                irPantallaGestionAnteproyector();
+                                break;
+                            case "estudiante":
+                                irGestorCronograma();
+                                break;
+                            case "administrador":
+                                irPantallaAdministracion();
+                                break;
+                        }
                 }else{
-                    Utilidades.mostrarDialogoSimple("Credenciales incorrectas",
-                            "El usuario y/o contrasenia no son correctos, validar informacion",
-                            Alert.AlertType.WARNING);
-                    
+                    Utilidades.mostrarDialogoSimple("Credenciales incorrectas","El usuario y/o contrasenia no son correctos, validar informacion",Alert.AlertType.WARNING);
                 }
-                    
-          
-                break;
-            
+                break;  
             default:
                 Utilidades.mostrarDialogoSimple("Error de peticion",
-                        "El sistema no esta disponible por el momento", Alert.AlertType.ERROR);
-                
+                        "El sistema no esta disponible por el momento", Alert.AlertType.ERROR); 
         }
-       //System.out.println("Codigo " +usuarioRespuesta.getCodigoRespuesta());
-       
     }
     
-    private void irPantallaPrincipal(){        
-       
-            //no importa cual elemento se traiga, va a direccionar a la escena tfUsuario, se hace un casteo (Stage)
-            Stage escenarioBase = (Stage) tfUsuario.getScene().getWindow();
-            escenarioBase.setScene(Utilidades.inicializarEscena("vistas/FXMLMenuPrincipal.fxml"));
-            //Titulo asociado al escenario no a la escena
-            escenarioBase.setTitle("Home");
-            escenarioBase.show();
+    private void irPantallaPrincipalDirector(){        
+            Stage Menu = (Stage) tfUsuario.getScene().getWindow();
             
-        
-        
+            Menu.setScene(Utilidades.inicializarEscena("vistas/FXMLMenuAcademico.fxml"));
+            Menu.setTitle("Inicio");
+            Menu.show();
     } 
     
+    private void irGestorCronograma(){
+        Stage gestorCronograma = (Stage) tfUsuario.getScene().getWindow();
+        
+        gestorCronograma.setScene(Utilidades.inicializarEscena("vistas/FXMLGestionCronograma.fxml"));
+        gestorCronograma.setTitle("Gestor de Cronograma");
+        gestorCronograma.show();
+    }
     
+    private void irPantallaAdministracion(){
+        Stage gestorCronograma = (Stage) tfUsuario.getScene().getWindow();
+        
+        gestorCronograma.setScene(Utilidades.inicializarEscena("vistas/FXMLGestionAdministracion.fxml"));
+        gestorCronograma.setTitle("Administracion");
+        gestorCronograma.show();
+    }
+    
+    private void irPantallaGestionAnteproyector(){
+        Stage MenuRCA = (Stage) tfUsuario.getScene().getWindow();
+        
+        MenuRCA.setScene(Utilidades.inicializarEscena("vistas/FXMLAnteproyectosAdminRCA.fxml"));
+        MenuRCA.setTitle("Inicio");
+        MenuRCA.show();
+    }
 }

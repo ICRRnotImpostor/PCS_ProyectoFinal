@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLFormularioCursoController">
+   <children>
+      <Label fx:id="lbTitulo" layoutX="41.0" layoutY="27.0" text="Formulario del curso">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="102.0" text="Nombre del curso:" />
+      <TextField fx:id="tfNombreCurso" layoutX="218.0" layoutY="97.0" prefHeight="31.0" prefWidth="242.0" promptText="Ej. Primer curso" />
+      <Pane layoutY="585.0" prefHeight="31.0" prefWidth="869.0" style="-fx-background-color: #18529D;" />
+      <Pane layoutY="554.0" prefHeight="31.0" prefWidth="869.0" style="-fx-background-color: #28AD56;" />
+      <Button layoutX="632.0" layoutY="494.0" mnemonicParsing="false" onAction="#clickBtnCancelar" text="Cancelar" />
+      <Button layoutX="774.0" layoutY="494.0" mnemonicParsing="false" onAction="#clickBtnGuardar" text="Guardar" />
+      <Label layoutX="38.0" layoutY="308.0" text="Fecha de inicio:" />
+      <Label layoutX="43.0" layoutY="208.0" text="Periodo:" />
+      <Label layoutX="38.0" layoutY="409.0" text="Fecha de fin:" />
+      <DatePicker fx:id="dpFechaInicio" layoutX="218.0" layoutY="303.0" prefHeight="31.0" prefWidth="150.0" />
+      <DatePicker fx:id="dpFechaFin" layoutX="211.0" layoutY="404.0" prefHeight="31.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbPeriodo" layoutX="218.0" layoutY="203.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

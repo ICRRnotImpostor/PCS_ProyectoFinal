@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 02/05/2023 
+Modificado: 15/06/2023  
+Descripción: Clase que implementa los objetos de tipo Anteproyecto
+*/
 package javafxsistemaescolar.modelo.pojo;
 
-/**
- *
- * @author ianca
- */
 public class Anteproyecto {
     private int idAnteproyecto;
     private String nombreProyecto;
@@ -22,14 +20,19 @@ public class Anteproyecto {
     private String bibliografiaRecomendada;
     private String resultadosEsperados;
     private String notas;
+    private String director;
+    private String lgac;
     private int idDirector;
     private int idCodirector;
     private int idLGAC;
+    private int idCuerpoAcademico;
+    private String estado;
+    private String observaciones;
 
     public Anteproyecto() {
     }
 
-    public Anteproyecto(int idAnteproyecto, String nombreProyecto, String cuerpoAcademico, String fecha, String lineaDeInvestigacion, String duracionAproximada, String modalidad, String nombreTrabajoRecepcional, String descripcionProyecto, String requisitos, String bibliografiaRecomendada, String resultadosEsperados, String notas, int idDirector, int idCodirector, int idLGAC) {
+    public Anteproyecto(int idAnteproyecto, String nombreProyecto, String cuerpoAcademico, String fecha, String lineaDeInvestigacion, String duracionAproximada, String modalidad, String nombreTrabajoRecepcional, String descripcionProyecto, String requisitos, String bibliografiaRecomendada, String resultadosEsperados, String notas, String director, String lgac, int idDirector, int idCodirector, int idLGAC, int idCuerpoAcademico, String estado, String obervaciones) {
         this.idAnteproyecto = idAnteproyecto;
         this.nombreProyecto = nombreProyecto;
         this.cuerpoAcademico = cuerpoAcademico;
@@ -43,9 +46,14 @@ public class Anteproyecto {
         this.bibliografiaRecomendada = bibliografiaRecomendada;
         this.resultadosEsperados = resultadosEsperados;
         this.notas = notas;
+        this.director = director;
+        this.lgac = lgac;
         this.idDirector = idDirector;
         this.idCodirector = idCodirector;
         this.idLGAC = idLGAC;
+        this.idCuerpoAcademico = idCuerpoAcademico;
+        this.estado = estado;
+        this.observaciones = obervaciones;
     }
 
     public int getIdAnteproyecto() {
@@ -152,6 +160,22 @@ public class Anteproyecto {
         this.notas = notas;
     }
 
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getLgac() {
+        return lgac;
+    }
+
+    public void setLgac(String lgac) {
+        this.lgac = lgac;
+    }
+
     public int getIdDirector() {
         return idDirector;
     }
@@ -175,6 +199,30 @@ public class Anteproyecto {
     public void setIdLGAC(int idLGAC) {
         this.idLGAC = idLGAC;
     }
-    
+
+    public int getIdCuerpoAcademico() {
+        return idCuerpoAcademico;
+    }
+
+    public void setIdCuerpoAcademico(int idCuerpoAcademico) {
+        this.idCuerpoAcademico = idCuerpoAcademico;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
     
 }

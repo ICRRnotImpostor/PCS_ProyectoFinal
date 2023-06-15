@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 28/05/2023 
+Modificado: 15/06/2023  
+Descripción: Clase que implementa los objetos de tipo Usuario
+*/
 package javafxsistemaescolar.modelo.pojo;
-
-/**
- *
- * @author migue
- */
 
 public class Usuario {
     private int idUsuario;
@@ -16,6 +13,7 @@ public class Usuario {
     private String apellidoMaterno;
     private String username;
     private String password;
+    private String privilegios;
     //
     private int codigoRespuesta;
 
@@ -23,16 +21,18 @@ public class Usuario {
         
     }
 
-    public Usuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, int codigoRespuesta) {
+    public Usuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String privilegios, int codigoRespuesta) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.username = username;
         this.password = password;
+        this.privilegios = privilegios;
         this.codigoRespuesta = codigoRespuesta;
-        
     }
+
+    
 
     public Usuario(int codigoRespuesta) {
         this.codigoRespuesta = codigoRespuesta;
@@ -96,7 +96,17 @@ public class Usuario {
     public void setCodigoRespuesta(int codigoRespuesta) {
         this.codigoRespuesta = codigoRespuesta;
     }    
+
+    public String getPrivilegios() {
+        return privilegios;
+    }
+
+    public void setPrivilegios(String privilegios) {
+        this.privilegios = privilegios;
+    }
    
+    
+    
     @Override
     public String toString(){
         return nombre+" "+apellidoPaterno+" "+apellidoMaterno;

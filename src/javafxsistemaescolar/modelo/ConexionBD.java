@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class ConexionBD {    
-    
-    
+       
     private static String driver = "com.mysql.jdbc.Driver";
     private static String nombreBase = "experienciaRecepcional";
     private static String hostname = "localhost";

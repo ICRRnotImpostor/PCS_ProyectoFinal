@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxsistemaescolar.controladores.FXMLDetallesAnteproyectoController">
+   <children>
+      <Pane prefHeight="96.0" prefWidth="1220.0" style="-fx-background-color: #2980B9;">
+         <children>
+            <Label layoutX="40.0" layoutY="20.0" text="Detalles de Anteproyecto">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Pane layoutX="970.0" layoutY="13.0" prefHeight="71.0" prefWidth="236.0" style="-fx-background-color: #486DA2;">
+               <children>
+                  <Button fx:id="btnParticipantes" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#clicBtnParticipantes" prefHeight="31.0" prefWidth="191.0" text="Participantes" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Label layoutX="36.0" layoutY="243.0" prefHeight="21.0" prefWidth="147.0" text="Fecha:" />
+      <Label layoutX="34.0" layoutY="187.0" prefHeight="21.0" prefWidth="147.0" text="Cuerpo Académico:" />
+      <Label layoutX="34.0" layoutY="120.0" prefHeight="43.0" prefWidth="147.0" text="Nombre del proyecto de investigación:" wrapText="true" />
+      <Label layoutX="34.0" layoutY="301.0" prefHeight="21.0" prefWidth="147.0" text="LGAC que alimenta:" />
+      <Label layoutX="33.0" layoutY="356.0" text="Línea de investigación:" />
+      <Label layoutX="448.0" layoutY="243.0" prefHeight="21.0" prefWidth="147.0" text="Duración aproximada:" />
+      <Label layoutX="448.0" layoutY="290.0" prefHeight="43.0" prefWidth="147.0" text="Modalidad de trabajo Recepcional:" wrapText="true" />
+      <Label layoutX="448.0" layoutY="345.0" prefHeight="43.0" prefWidth="147.0" text="Nombre del Trabajo Recepcional:" wrapText="true" />
+      <Label layoutX="861.0" layoutY="131.0" prefHeight="21.0" prefWidth="147.0" text="Requisitos:" />
+      <Label layoutX="448.0" layoutY="131.0" prefWidth="147.0" text="Director:" />
+      <Label layoutX="448.0" layoutY="187.0" prefHeight="21.0" prefWidth="147.0" text="Codirector:" />
+      <Label layoutX="34.0" layoutY="431.0" text="Descrpción del Proyecto de Investigación:" />
+      <Label layoutX="861.0" layoutY="243.0" text="Resultados Esperados:" />
+      <Label layoutX="448.0" layoutY="431.0" text="Bibliografía Recomendada:" />
+      <Label layoutX="861.0" layoutY="356.0" text="Notas:" />
+      <TextField fx:id="tfNombreProyecto" editable="false" layoutX="201.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
+      <DatePicker fx:id="dpFecha" disable="true" editable="false" layoutX="201.0" layoutY="238.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField fx:id="tfLineaInvestigacion" editable="false" layoutX="199.0" layoutY="351.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField fx:id="tfDuracion" editable="false" layoutX="610.0" layoutY="238.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField fx:id="tfModalidad" editable="false" layoutX="610.0" layoutY="296.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField fx:id="tfTrabajoRecepcional" editable="false" layoutX="610.0" layoutY="350.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextArea fx:id="taRequisitos" editable="false" layoutX="861.0" layoutY="165.0" prefHeight="71.0" prefWidth="322.0" />
+      <TextArea fx:id="taResultados" editable="false" layoutX="861.0" layoutY="276.0" prefHeight="71.0" prefWidth="322.0" />
+      <TextArea fx:id="taDescripcion" editable="false" layoutX="33.0" layoutY="476.0" prefHeight="71.0" prefWidth="382.0" />
+      <TextArea fx:id="taBibliografia" editable="false" layoutX="448.0" layoutY="476.0" prefHeight="71.0" prefWidth="382.0" />
+      <TextArea fx:id="taNotas" editable="false" layoutX="861.0" layoutY="388.0" prefHeight="71.0" prefWidth="322.0" />
+      <ComboBox fx:id="cbDirector" disable="true" layoutX="610.0" layoutY="126.0" prefHeight="31.0" prefWidth="218.0" />
+      <ComboBox fx:id="cbCodirector" disable="true" layoutX="610.0" layoutY="182.0" prefHeight="31.0" prefWidth="218.0" />
+      <ComboBox fx:id="cbLgac" disable="true" layoutX="199.0" layoutY="296.0" prefHeight="31.0" prefWidth="218.0" />
+      <Button fx:id="btnRegresar" layoutX="1045.0" layoutY="512.0" mnemonicParsing="false" onAction="#clicBtnRegresar" prefHeight="31.0" prefWidth="138.0" text="Regresar" />
+      <ComboBox fx:id="cbCuerpoAcademico" disable="true" layoutX="199.0" layoutY="185.0" prefHeight="31.0" prefWidth="218.0" />
+   </children>
+</AnchorPane>

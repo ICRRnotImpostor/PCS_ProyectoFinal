@@ -1,16 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+/* 
+Autor: Ian Rumayor. 
+Creado: 28/05/2023 
+Modificado: 15/06/2023  
+Descripción: El controlador registra el anteptoyecto y lo modifica
+*/
 package javafxsistemaescolar.controladores;
 
-import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,29 +23,22 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafxsistemaescolar.modelo.dao.AcademicoDAO;
 import javafxsistemaescolar.modelo.dao.AnteproyectoDAO;
+import javafxsistemaescolar.modelo.dao.CuerpoAcademicoDAO;
 import javafxsistemaescolar.modelo.dao.LGACDAO;
 import javafxsistemaescolar.modelo.pojo.Academico;
 import javafxsistemaescolar.modelo.pojo.AcademicoRespuesta;
 import javafxsistemaescolar.modelo.pojo.Anteproyecto;
+import javafxsistemaescolar.modelo.pojo.CuerpoAcademico;
+import javafxsistemaescolar.modelo.pojo.CuerpoAcademicoRespuesta;
 import javafxsistemaescolar.modelo.pojo.LGAC;
 import javafxsistemaescolar.modelo.pojo.LGACRespuesta;
 import javafxsistemaescolar.utils.Constantes;
 import javafxsistemaescolar.utils.Utilidades;
 
-public class FXMLRegistrarAnteproyectoController implements Initializable {
+public class FXMLFormularioAnteproyectosController implements Initializable {
 
     @FXML
-    private Button btnRegresar;
-    @FXML
-    private ComboBox<LGAC> cbLGAC;
-    @FXML
-    private ComboBox<Academico> cbDirector;
-    @FXML
-    private ComboBox<Academico> cbCodirector;
-    @FXML
     private TextField tfNombreProyecto;
-    @FXML
-    private TextField tfCuerpoAcademico;
     @FXML
     private DatePicker dpFecha;
     @FXML
@@ -55,7 +46,7 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
     @FXML
     private TextField tfDuracion;
     @FXML
-    private TextField tfModalidad;
+    private TextField tfmodalidad;
     @FXML
     private TextField tfTrabajoRecepcional;
     @FXML
@@ -68,26 +59,42 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
     private TextArea taBibliografia;
     @FXML
     private TextArea taNotas;
+    @FXML
+    private ComboBox<Academico> cbDirector;
+    @FXML
+    private ComboBox<Academico> cbCodirector;
+    @FXML
+    private ComboBox<LGAC> cbLGAC;
+    @FXML
+    private Button btnRegresar;
+    @FXML
+    private ComboBox<CuerpoAcademico> cbCuerpoAcademico;
     
     private ObservableList<LGAC> ligas;
-    private ObservableList<Academico> PerAcademico;
+    private ObservableList<Academico> perAcademico;
+    private ObservableList<CuerpoAcademico> cuerpoAcademico;
+    
     String estiloError = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2;";
     String estiloNormal = "-fx-border-width: 0;";
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cargarInformacionLGAC();
         cargarInformacionAcademico();
-        
+        cargarInformacionCuerpoAcademico();
+        cargarLGAC();
     }    
 
     @FXML
     private void clicBtnRegresar(ActionEvent event) {
-        Stage scenarioRegistrarAnteproyectos = (Stage) this.btnRegresar.getScene().getWindow();
-        scenarioRegistrarAnteproyectos.close();
+        cerrarVentana();
+    }
+
+    @FXML
+    private void clicBtnRegistrar(ActionEvent event) {
+        validarCampos();
     }
     
-    private void cargarInformacionLGAC(){
+    private void cargarLGAC(){
         ligas = FXCollections.observableArrayList();
         LGACRespuesta lgacCB = LGACDAO.obtenerInformacionLGAC();
         switch(lgacCB.getCodigoRespuesta()){
@@ -109,7 +116,7 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
     }
     
     private void cargarInformacionAcademico(){
-        PerAcademico = FXCollections.observableArrayList();
+        perAcademico = FXCollections.observableArrayList();
         AcademicoRespuesta AcademicoCB = AcademicoDAO.obtenerInformacionAcademico();
         switch(AcademicoCB.getCodigoRespuesta()){
             case Constantes.ERROR_CONEXION:
@@ -123,21 +130,59 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
                           Alert.AlertType.INFORMATION);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                  PerAcademico.addAll(AcademicoCB.getAcademico());
-                  cbDirector.setItems(PerAcademico);
-                  cbCodirector.setItems(PerAcademico);
+                  perAcademico.addAll(AcademicoCB.getAcademico());
+                  cbDirector.setItems(perAcademico);
+                  cbCodirector.setItems(perAcademico);
                 break;
         }
+    }
+    
+    private void cargarInformacionCuerpoAcademico(){
+        cuerpoAcademico = FXCollections.observableArrayList();
+        CuerpoAcademicoRespuesta cuerpoAcademicoCB = CuerpoAcademicoDAO.obtenerInformacionCuerpoAcademico();
+        switch(cuerpoAcademicoCB.getCodigoRespuesta()){
+            case Constantes.ERROR_CONEXION:
+                  Utilidades.mostrarDialogoSimple("Error de conexión", 
+                            "Error en la conexión con la base de datos.", 
+                            Alert.AlertType.ERROR);
+                break;
+            case Constantes.ERROR_CONSULTA:
+                  Utilidades.mostrarDialogoSimple("Error de consulta", 
+                          "Por el momento no se puede obtener la información", 
+                          Alert.AlertType.INFORMATION);
+                break;
+            case Constantes.OPERACION_EXITOSA:
+                  cuerpoAcademico.addAll(cuerpoAcademicoCB.getCuerpoAcademico());
+                  cbCuerpoAcademico.setItems(cuerpoAcademico);
+                break;
+        }
+    }
+    
+    private void establecerEstiloNormal(){
+        tfNombreProyecto.setStyle(estiloNormal);
+        dpFecha.setStyle(estiloNormal);
+        tfLineaInvestigacion.setStyle(estiloNormal);
+        tfDuracion.setStyle(estiloNormal);
+        tfmodalidad.setStyle(estiloNormal);
+        tfTrabajoRecepcional.setStyle(estiloNormal);
+        taRequisitos.setStyle(estiloNormal);
+        taResultados.setStyle(estiloNormal);
+        taDescripcion.setStyle(estiloNormal);
+        taBibliografia.setStyle(estiloNormal);
+        taNotas.setStyle(estiloNormal);
+        cbLGAC.setStyle(estiloNormal);
+        cbDirector.setStyle(estiloNormal);
+        cbCodirector.setStyle(estiloNormal);
+        cbCuerpoAcademico.setStyle(estiloNormal);
     }
     
     private void validarCampos(){
         establecerEstiloNormal();
         boolean datosValidos = true;
         String nombreProyecto = tfNombreProyecto.getText();
-        String cuerpoAcademico = tfCuerpoAcademico.getText();
         String lineaInvestigacion = tfLineaInvestigacion.getText();
         String duracion = tfDuracion.getText();
-        String modalidad = tfModalidad.getText();
+        String modalidad = tfmodalidad.getText();
         String trabajoRecepcional = tfTrabajoRecepcional.getText();
         String requisitos = taRequisitos.getText();
         String resultados = taResultados.getText();
@@ -148,13 +193,14 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
         int posicionLGAC = cbLGAC.getSelectionModel().getSelectedIndex();
         int posicionDirector = cbDirector.getSelectionModel().getSelectedIndex();
         int posicionCodirector = cbCodirector.getSelectionModel().getSelectedIndex();
+        int posicionCuerpoAcademico = cbCuerpoAcademico.getSelectionModel().getSelectedIndex();
 
         if(nombreProyecto.isEmpty()){
             tfNombreProyecto.setStyle(estiloError);
             datosValidos = false;
         }
-        if(cuerpoAcademico.isEmpty()){
-            tfCuerpoAcademico.setStyle(estiloError);
+        if(posicionCuerpoAcademico == -1){
+            cbCuerpoAcademico.setStyle(estiloError);
             datosValidos = false;
         } 
         if (fecha == null) {
@@ -182,7 +228,7 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
             datosValidos = false;
         }
         if(modalidad.isEmpty()){
-            tfModalidad.setStyle(estiloError);
+            tfmodalidad.setStyle(estiloError);
             datosValidos = false;
         }
         if(trabajoRecepcional.isEmpty()){
@@ -212,7 +258,7 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
         if(datosValidos){
             Anteproyecto ingresarAnteproyecto = new Anteproyecto();
             ingresarAnteproyecto.setNombreProyecto(nombreProyecto);
-            ingresarAnteproyecto.setCuerpoAcademico(cuerpoAcademico);
+            ingresarAnteproyecto.setIdCuerpoAcademico(cuerpoAcademico.get(posicionCuerpoAcademico).getIdCuerpoAcademico());
             ingresarAnteproyecto.setFecha(fecha.toString());
             ingresarAnteproyecto.setLineaDeInvestigacion(lineaInvestigacion);
             ingresarAnteproyecto.setDuracionAproximada(duracion);
@@ -223,31 +269,12 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
             ingresarAnteproyecto.setBibliografiaRecomendada(bibliografia);
             ingresarAnteproyecto.setNotas(notas);
             ingresarAnteproyecto.setIdLGAC(ligas.get(posicionLGAC).getIdLGAC());
-            ingresarAnteproyecto.setIdDirector(PerAcademico.get(posicionDirector).getIdAcademico());
-            ingresarAnteproyecto.setIdCodirector(PerAcademico.get(posicionCodirector).getIdAcademico());
-            ingresarAnteproyecto.setResultadosEsperados(resultados);    
+            ingresarAnteproyecto.setIdDirector(perAcademico.get(posicionDirector).getIdAcademico());
+            ingresarAnteproyecto.setIdCodirector(perAcademico.get(posicionCodirector).getIdAcademico());
+            ingresarAnteproyecto.setResultadosEsperados(resultados);   
+            ingresarAnteproyecto.setEstado("sin postular");
             registrarAnteproyecto(ingresarAnteproyecto);
-
-        }
-        
-    }
-    
-    private void establecerEstiloNormal(){
-        tfNombreProyecto.setStyle(estiloNormal);
-        tfCuerpoAcademico.setStyle(estiloNormal);
-        dpFecha.setStyle(estiloNormal);
-        tfLineaInvestigacion.setStyle(estiloNormal);
-        tfDuracion.setStyle(estiloNormal);
-        tfModalidad.setStyle(estiloNormal);
-        tfTrabajoRecepcional.setStyle(estiloNormal);
-        taRequisitos.setStyle(estiloNormal);
-        taResultados.setStyle(estiloNormal);
-        taDescripcion.setStyle(estiloNormal);
-        taBibliografia.setStyle(estiloNormal);
-        taNotas.setStyle(estiloNormal);
-        cbLGAC.setStyle(estiloNormal);
-        cbDirector.setStyle(estiloNormal);
-        cbCodirector.setStyle(estiloNormal);
+        }       
     }
     
     private void registrarAnteproyecto(Anteproyecto nuevoAnteproyecto){
@@ -255,27 +282,25 @@ public class FXMLRegistrarAnteproyectoController implements Initializable {
         switch(codigoRespuesta){
             case Constantes.ERROR_CONEXION:
                 Utilidades.mostrarDialogoSimple("Error de conexión", 
-                        "El alumno no pudo ser guardado debido a un error en su conexión...", 
+                        "El Anteproyecto no pudo ser guardado debido a un error en su conexión...", 
                         Alert.AlertType.ERROR);
                 break;
             case Constantes.ERROR_CONSULTA:
                 Utilidades.mostrarDialogoSimple("Error en la información", 
-                        "La información del alumno no puede ser guardada, por favor verifique su información e intente más tarde.", 
+                        "La información del Anteproyecto no puede ser guardada, por favor verifique su información e intente más tarde.", 
                         Alert.AlertType.WARNING);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                Utilidades.mostrarDialogoSimple("Alumno registrado", 
-                        "La información del alumno fue guardada correctamente", 
+                Utilidades.mostrarDialogoSimple("Anteproyecto registrado", 
+                        "La información del Anteproyecto fue guardada correctamente", 
                         Alert.AlertType.INFORMATION);
-                
-                
+                cerrarVentana();
                 break;
         }
     }
-
-    @FXML
-    private void clicBtnRegistrar(ActionEvent event) {
-        validarCampos();
-    }
     
+    private void cerrarVentana(){
+        Stage escenarioBase = (Stage) btnRegresar.getScene().getWindow();
+        escenarioBase.close();
+    }
 }
